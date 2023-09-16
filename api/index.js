@@ -31,7 +31,7 @@ router.get("/", async(req, res) => {
 
      else
 
-     res.send({person: resp.person})
+     res.send(resp.person)
 });
 
 // get via user id
@@ -56,7 +56,7 @@ router.get("/:nameid", async(req, res) => {
 
      else
 
-     res.send({person: resp.person})
+     res.send(resp.person)
 });
 
 // post for creating users
@@ -79,7 +79,7 @@ let resp;
 
      else
 
-     res.send({message: "successful", person: resp.person})
+     res.send(resp.person)
 });
 
 
@@ -103,7 +103,7 @@ const pid = req.params.id
 
      else
 
-     res.send({message: "successful", person: resp.person})
+     res.send(resp.person)
 });
 
 router.delete("/:id", async(req, res) => {
@@ -120,7 +120,7 @@ const pid = req.params.id
 
      else
 
-     res.send({message: "delete successful", person: resp.person})
+     res.send(resp.person)
 });
 
 
