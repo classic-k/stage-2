@@ -1,5 +1,7 @@
 import express from "express";
 import { fetch_person, create, update, remove} from "../utils/user.js";
+//import express from "express";
+import "dotenv/config";
 
 export const router = express.Router();
 
@@ -120,3 +122,19 @@ const pid = req.params.id
 
      res.send({message: "delete successful", person: resp.person})
 });
+
+
+//import { router } from "./api/index.js";
+
+const app = express()
+
+const port = 3000
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use("/api",router)
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`)
+})

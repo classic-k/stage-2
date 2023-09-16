@@ -1,9 +1,10 @@
 import requests
 
 #python test script to test api
+url = "http://localhost:3000/api"
 def create(datas):
 
-    url = "http://localhost:3000/api"
+   
     ps = requests.post(url, data=datas)
 
     if(ps.status_code == 200):
@@ -11,21 +12,19 @@ def create(datas):
         print(ps.json())
 
 #create({"name": "Micheal Faraday"})
-def update(datas):
+def update(datas, id):
 
-    url = "http://localhost:3000/api/1"
+    url = url + "/"+id
  
-
-
     ps = requests.patch(url, data=datas)
 
     if(ps.status_code == 200):
 
         print(ps.json())
-#update({"name": "Mark Essiens"})
-def remove():
+#update({"name": "Mark Essiens"}, 1)
+def remove(id):
 
-    url = "http://localhost:3000/api/3"
+    url = url = url + "/"+id
 
 
     ps = requests.delete(url)
@@ -35,21 +34,21 @@ def remove():
     if(ps.status_code == 200):
 
         print(ps.json())
-#remove()
-def get_name():
+#remove(1)
+def get_name(name):
 
-    url = "http://localhost:3000/api?name=Mark Essiens"
+    url = url +"?name="+name
     ps = requests.get(url)#,data=datas)
     print(ps)
 
     if(ps.status_code == 200):
 
         print(ps.json())
-#get_name()
+#get_name("Mark Essiens")
 
-def get_id():
+def get_id(id):
 
-    url = "http://localhost:3000/api?id=1"
+    url = url +"?id=" +id
 
 
     ps = requests.get(url)
@@ -59,10 +58,10 @@ def get_id():
     if(ps.status_code == 200):
 
         print(ps.json())
-#get_id()
-def get_id_param():
+#get_id(1)
+def get_id_param(id):
 
-    url = "http://localhost:3000/api/2"
+    url = url+"/"+id
    
     ps = requests.get(url)
 
@@ -72,6 +71,6 @@ def get_id_param():
 
         print(ps.json())
 
-#get_id_param()
+#get_id_param(1)
 
 
