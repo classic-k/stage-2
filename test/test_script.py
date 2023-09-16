@@ -1,7 +1,7 @@
 import requests
 
 #python test script to test api
-url = "http://localhost:3000/api"
+url = "https://stage-2-rho.vercel.app/api"
 def create(datas):
 
    
@@ -11,34 +11,34 @@ def create(datas):
 
         print(ps.json())
 
-#create({"name": "Micheal Faraday"})
+#create({"name": "Yemi Cardoso"})
 def update(datas, id):
 
-    url = url + "/"+id
+    link = url + "/"+str(id)
  
-    ps = requests.patch(url, data=datas)
+    ps = requests.patch(link, data=datas)
 
     if(ps.status_code == 200):
 
         print(ps.json())
-#update({"name": "Mark Essiens"}, 1)
+#update({"name": "HM Yemi Cardoso"}, 5)
 def remove(id):
 
-    url = url = url + "/"+id
+    link = url + "/"+str(id)
 
 
-    ps = requests.delete(url)
+    ps = requests.delete(link)
 
     print(ps)
 
     if(ps.status_code == 200):
 
         print(ps.json())
-#remove(1)
+#remove(2)
 def get_name(name):
 
-    url = url +"?name="+name
-    ps = requests.get(url)#,data=datas)
+    link = url +"?name="+name
+    ps = requests.get(link)#,data=datas)
     print(ps)
 
     if(ps.status_code == 200):
@@ -48,10 +48,10 @@ def get_name(name):
 
 def get_id(id):
 
-    url = url +"?id=" +id
+    link = url +"?id=" +str(id)
 
 
-    ps = requests.get(url)
+    ps = requests.get(link)
 
     print(ps)
 
@@ -61,9 +61,9 @@ def get_id(id):
 #get_id(1)
 def get_id_param(id):
 
-    url = url+"/"+id
+    link = url+"/"+str(id)
    
-    ps = requests.get(url)
+    ps = requests.get(link)
 
     print(ps)
 
@@ -71,6 +71,6 @@ def get_id_param(id):
 
         print(ps.json())
 
-#get_id_param(1)
+get_id_param(1)
 
 
